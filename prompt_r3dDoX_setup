@@ -21,16 +21,16 @@ function prompt_r3dDoX_setup {
 
   # Set git-info parameters.
   zstyle ':prezto:module:git:info' verbose 'yes'
-  zstyle ':prezto:module:git:info:dirty' format "%F{yellow}*>%f"
-  zstyle ':prezto:module:git:info:clean' format "%F{yellow}>%f"
-  zstyle ':prezto:module:git:info:branch' format "%F{yellow}<%b%f"
-  zstyle ':prezto:module:git:info:commit' format "%F{yellow}<%c%f"
+  zstyle ':prezto:module:git:info:dirty' format "*"
+  zstyle ':prezto:module:git:info:clean' format ""
+  zstyle ':prezto:module:git:info:branch' format "%b"
+  zstyle ':prezto:module:git:info:commit' format "%c"
   zstyle ':prezto:module:git:info:ahead' format '%F{yellow}+%A%f'
   zstyle ':prezto:module:git:info:behind' format '%F{yellow}-%B%f'
   zstyle ':prezto:module:git:info:unmerged' format '%F{red}%U%f'
   zstyle ':prezto:module:git:info:keys' format \
-    'ref' '$(coalesce "%b" "%c")%C' \
-    'status' '%s%D%A%B%S%a%d%m%r%U%u'
+    'ref' '%F{yellow}<$(coalesce "%b" "%c")%C%D>%f' \
+    'status' '%s%A%B%S%a%d%m%r%U%u'
 
   # Define prompts.
   PROMPT='╭─%F{green}%n@%m%f %F{cyan}%~%f ${(e)git_info[ref]}${(e)git_info[status]}
